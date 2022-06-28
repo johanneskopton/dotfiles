@@ -10,3 +10,5 @@ alias glog='git log --graph --all --decorate'
 alias gst='git status'
 alias gdc='git diff --cached'
 
+alias vim='nvim'
+alias oldvim='\vim'
