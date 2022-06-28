@@ -3,14 +3,16 @@ set showcmd
 set number
 set laststatus=2
 
-" Nerdtree
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-" Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+if !exists('g:vscode')
+    " Nerdtree
+    nnoremap <leader>n :NERDTreeFocus<CR>
+    nnoremap <C-n> :NERDTree<CR>
+    nnoremap <C-t> :NERDTreeToggle<CR>
+    nnoremap <C-f> :NERDTreeFind<CR>
+    " Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+endif
 
 " Vundle
 set nocompatible              " required
@@ -29,6 +31,7 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
+if !exists('g:vscode')
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'preservim/nerdtree'
@@ -51,25 +54,28 @@ Plugin 'utl.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-surround'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+if !exists('g:vscode')
+    "split navigations
+    nnoremap <C-J> <C-W><C-J>
+    nnoremap <C-K> <C-W><C-K>
+    nnoremap <C-L> <C-W><C-L>
+    nnoremap <C-H> <C-W><C-H>
 
-" Color theme
-"set t_Co=256   " This is may or may not needed.
-set background=light
-colorscheme solarized
-let g:airline_theme='solarized'
+    " Color theme
+    "set t_Co=256   " This is may or may not needed.
+    set background=light
+    colorscheme solarized
+    let g:airline_theme='solarized'
 
-" airline
-let g:airline_section_y = airline#section#create('%{virtualenv#statusline()}')
+    " airline
+    let g:airline_section_y = airline#section#create('%{virtualenv#statusline()}')
+endif
 
 " Indent and stuff
 set tabstop=4
@@ -98,39 +104,41 @@ set encoding=utf-8
 "    exec(open(activate_this).read(), { "__file__": activate_this })
 "EOF
 
-autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-map <F8> :!node %<CR>
-map <F5> :!/opt/firefox/firefox %<CR>
+if !exists('g:vscode')
+    autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+    map <F8> :!node %<CR>
+    map <F5> :!firefox %<CR>
 
-"python linting
-let g:ale_linters = {'python': ['flake8', 'pylint']}
+    "python linting
+    let g:ale_linters = {'python': ['flake8', 'pylint']}
 
-let g:ale_fixers = {
-      \ 'python': ['yapf'],
-      \ 'javascript': ['eslint']
-      \}
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_save = 1
+    let g:ale_fixers = {
+          \ 'python': ['yapf'],
+          \ 'javascript': ['eslint']
+          \}
+    let g:ale_fix_on_save = 1
+    let g:ale_lint_on_save = 1
 
-function! LinterStatus() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
+    function! LinterStatus() abort
+      let l:counts = ale#statusline#Count(bufnr(''))
 
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
+      let l:all_errors = l:counts.error + l:counts.style_error
+      let l:all_non_errors = l:counts.total - l:all_errors
 
-  return l:counts.total == 0 ? '✨ all good ✨' : printf(
-        \   '😞 %dW %dE',
-        \   all_non_errors,
-        \   all_errors
-        \)
-endfunction
+      return l:counts.total == 0 ? '✨ all good ✨' : printf(
+            \   '😞 %dW %dE',
+            \   all_non_errors,
+            \   all_errors
+            \)
+    endfunction
 
 
-set statusline=
-set statusline+=%m
-set statusline+=\ %f
-set statusline+=%=
-set statusline+=\ %{LinterStatus()}
+    set statusline=
+    set statusline+=%m
+    set statusline+=\ %f
+    set statusline+=%=
+    set statusline+=\ %{LinterStatus()}
+endif
 
 " clear surch by enter
 :nnoremap <silent> <CR> :nohlsearch<CR><CR>
