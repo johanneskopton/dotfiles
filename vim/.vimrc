@@ -139,6 +139,7 @@ if !exists('g:vscode')
     set statusline+=\ %f
     set statusline+=%=
     set statusline+=\ %{LinterStatus()}
+    let NERDTreeShowHidden=1
 endif
 
 " clear surch by enter
