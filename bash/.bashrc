@@ -118,6 +118,7 @@ fi
 WHITE='\[\033[0;37m\]'
 
 LGREY='\[\033[0;37m\]'
+DGREY='\[\033[0;38m\]'
 BLUE='\[\033[0;34m\]'
 GREEN='\[\033[0;32m\]'
 RED='\[\033[0;31m\]'
@@ -158,7 +159,7 @@ local EXIT=$?
   fi
 PS1=${PYTHON_VIRTUALENV}
 
-PS1+="\[\e]0;\w\a\]$BLUE\u$LGREY@$RED\h$LGREY:$BLUE\w"
+PS1+="\[\e]0;\w\a\]$BLUE\u$DGREY@$RED\h$DGREY:$BLUE\w"
 find_git_branch;
 find_git_dirty;
 PS1+="$GREEN\$git_branch$RED\$git_dirty"
