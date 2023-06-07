@@ -35,25 +35,16 @@ if !exists('g:vscode')
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'preservim/nerdtree'
-Plugin 'NLKNguyen/papercolor-theme'
-"Plugin 'vim-scripts/indentpython.vim'
 Plugin 'ntpeters/vim-better-whitespace'
-"Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'ron89/thesaurus_query.vim'
-"Plugin 'Chiel92/vim-autoformat'
 Plugin 'dense-analysis/ale'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
-Plugin 'skammer/vim-css-color'
-"Plugin 'junegunn/vim-emoji'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'jceb/vim-orgmode'
-Plugin 'utl.vim'
-Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
+"Plugin 'utl.vim'
 Plugin 'tpope/vim-surround'
 endif
 
@@ -95,6 +86,7 @@ set fileformat=unix
 
 set encoding=utf-8
 
+if !exists('g:vscode')
 "python with virtualenv support
 "python3 << EOF
 "import os
@@ -105,7 +97,6 @@ set encoding=utf-8
 "    exec(open(activate_this).read(), { "__file__": activate_this })
 "EOF
 
-if !exists('g:vscode')
     autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
     map <F8> :!node %<CR>
     map <F5> :!firefox %<CR>
@@ -148,7 +139,6 @@ endif
 :nmap <c-s> :w<CR>
 :imap <c-s> <Esc>:w<CR>a
 
-let vim_markdown_preview_github=0
 :set spelllang=de
 :hi SpellBad cterm=underline
 
