@@ -197,7 +197,7 @@ export PS1=${PYTHON_VIRTUALENV}+${PS1}
 
 WINEPREFIX="$HOME/.wine32"
 
-export PATH=$PATH:/home/johannes/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
