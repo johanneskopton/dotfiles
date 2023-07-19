@@ -96,6 +96,7 @@ if !exists('g:vscode')
 "    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
 "    exec(open(activate_this).read(), { "__file__": activate_this })
 "EOF
+    let g:python3_host_prog = '/usr/bin/python3'
 
     autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
     map <F8> :!node %<CR>
