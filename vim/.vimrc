@@ -61,7 +61,7 @@ if !exists('g:vscode')
 
     " Color theme
     "set t_Co=256   " This is may or may not needed.
-    set background=light
+    set background=dark
     colorscheme solarized
     let g:airline_theme='solarized'
 
@@ -149,9 +149,11 @@ vnoremap <silent> <C-k> :s/^/#/<cr>:noh<cr>
 vnoremap <silent> <C-u> :s/^#//<cr>:noh<cr>
 
 set cursorline
-autocmd InsertEnter * highlight Normal ctermbg=7
-autocmd InsertEnter * highlight CursorLine ctermbg=15
-autocmd InsertLeave * highlight Normal ctermbg=15
-autocmd InsertLeave * highlight CursorLine ctermbg=7
+
+highlight clear SignColumn
+autocmd InsertEnter * highlight Normal ctermbg=0
+autocmd InsertEnter * highlight CursorLine ctermbg=8
+autocmd InsertLeave * highlight Normal ctermbg=8
+autocmd InsertLeave * highlight CursorLine ctermbg=0
 
 autocmd BufWritePre *.json :%!jq --indent 4 .
