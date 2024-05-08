@@ -46,6 +46,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jmcantrell/vim-virtualenv'
 "Plugin 'utl.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'bfontaine/redcode.vim'
 endif
 
 " All of your Plugins must be added before the following line
