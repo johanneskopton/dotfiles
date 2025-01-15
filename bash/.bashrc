@@ -203,3 +203,6 @@ export PATH=$PATH:$HOME/.local/bin
 stty -ixon
 
 eval "$(thefuck --alias)"
+
+ssh-add ~/.ssh/github1 2>/dev/null
+
