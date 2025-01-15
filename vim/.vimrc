@@ -36,8 +36,8 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'preservim/nerdtree'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'dense-analysis/ale'
-Plugin 'craftzdog/solarized-osaka.nvim'
-"Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'craftzdog/solarized-osaka.nvim'
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -71,10 +71,10 @@ if !exists('g:vscode')
 
 
     set termguicolors
-    set background=dark
-    colorscheme solarized-osaka
-    "colorscheme PaperColor
-    "let g:airline_theme='papercolor'
+    set background=light
+    "colorscheme solarized-osaka
+    colorscheme PaperColor
+    let g:airline_theme='papercolor'
 
     " airline
     let g:airline_section_y = airline#section#create('%{virtualenv#statusline()}')

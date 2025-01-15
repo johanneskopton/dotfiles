@@ -3,7 +3,7 @@ source "~/.mutt/accounts/uni-bonn"
 set editor="vim"
 set sort="reverse-date-received"
 set header_cache="~/.cache/mutt"
-source "~/.mutt/mutt-colors-solarized-dark-16.muttrc"
+source "~/.mutt/mutt-colors-solarized-light-16.muttrc"
 bind pager <up> previous-line
 bind pager <down> next-line
 unset wait_key
