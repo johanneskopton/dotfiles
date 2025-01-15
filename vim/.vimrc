@@ -63,7 +63,7 @@ if !exists('g:vscode')
     \   'theme': {
     \     'default.light': {
     \       'override' : {
-    \         'color00' : ['#ffffff', '255'],
+    "\         'color00' : ['#ffffff', '255'],
     \       }
     \     }
     \   }
