@@ -78,6 +78,12 @@ if !exists('g:vscode')
 
     " airline
     let g:airline_section_y = airline#section#create('%{virtualenv#statusline()}')
+    if &term =~ 'linux'
+        set background=dark
+        set t_Co=8
+        let g:airline_symbols_ascii = 1
+        colorscheme default
+    endif
 endif
 
 " Indent and stuff
