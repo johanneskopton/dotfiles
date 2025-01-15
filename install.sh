@@ -3,9 +3,11 @@ mv .bashrc .bashrc_old
 cd dotfiles
 stow bash
 stow vim
+stow mutt
 mkdir ~/.config/nvim
 stow nvim -t ~/.config/nvim
 cd ..
 source .bashrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim -c "PluginInstall"
+

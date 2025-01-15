@@ -1,0 +1,6 @@
+text/html; cp %s /tmp/mutt_view.html && xdg-open /tmp/mutt_view.html; nametemplate=%s.html; test=test -n "$DISPLAY"
+text/html; w3m -I %{charset} -T text/html -dump %s; nametemplate=%s.html; copiousoutput
+application/pdf; cp %s /tmp/mutt_view.pdf && xdg-open /tmp/mutt_view.pdf
+image/jpeg; cp %s /tmp/mutt_view.jpg && xdg-open /tmp/mutt_view.jpg
+image/png; cp %s /tmp/mutt_view.png && xdg-open /tmp/mutt_view.png
+image/gif; cp %s /tmp/mutt_view.gif && xdg-open /tmp/mutt_view.gif
