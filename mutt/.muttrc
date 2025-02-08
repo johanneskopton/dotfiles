@@ -10,3 +10,6 @@ unset wait_key
 set mailcap_path="~/.mailcap"
 alternative_order text/plain text/html text/enriched
 bind attach <return> view-mailcap
+macro index,pager \cb "<pipe-message> urlscan --run 'firefox {}'<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan --run 'firefox {}'<Enter>" "call urlscan to extract URLs out of a message"
+
