@@ -36,8 +36,14 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'preservim/nerdtree'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'dense-analysis/ale'
-"Plugin 'craftzdog/solarized-osaka.nvim'
-Plugin 'NLKNguyen/papercolor-theme'
+if exists('$SOLARIZED') && $SOLARIZED ==? '1'
+    "Plugin 'craftzdog/solarized-osaka.nvim'
+    "Plugin 'altercation/vim-colors-solarized'
+    Plugin 'lifepillar/vim-solarized8'
+    "Plugin 'ericbn/vim-solarized'
+else
+    Plugin 'NLKNguyen/papercolor-theme'
+endif
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -71,11 +77,14 @@ if !exists('g:vscode')
 
 
     set termguicolors
-    set background=light
-    "colorscheme solarized-osaka
-    colorscheme PaperColor
-    let g:airline_theme='papercolor'
-
+    if exists('$SOLARIZED') && $SOLARIZED ==? '1'
+        set background=light
+        colorscheme solarized8
+    else
+        set background=light
+        colorscheme PaperColor
+        let g:airline_theme='papercolor'
+    endif
     " airline
     let g:airline_section_y = airline#section#create('%{virtualenv#statusline()}')
     if &term =~ 'linux'
