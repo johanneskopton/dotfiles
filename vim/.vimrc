@@ -40,7 +40,6 @@ if exists('$SOLARIZED') && $SOLARIZED ==? '1'
     "Plugin 'craftzdog/solarized-osaka.nvim'
     "Plugin 'altercation/vim-colors-solarized'
     Plugin 'lifepillar/vim-solarized8'
-    "Plugin 'ericbn/vim-solarized'
 else
     Plugin 'NLKNguyen/papercolor-theme'
 endif
@@ -48,9 +47,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jmcantrell/vim-virtualenv'
-"Plugin 'utl.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'bfontaine/redcode.vim'
 endif
 
 " All of your Plugins must be added before the following line
