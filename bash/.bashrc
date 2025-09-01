@@ -227,3 +227,9 @@ if [ "$TERM" = "linux" ]; then
     clear #for background artifacting
 fi
 
+export EDITOR=/usr/bin/nvim
+
+export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
+
+export CAPACITOR_ANDROID_STUDIO_PATH="/home/johannes/Downloads/android-studio/android-studio/bin/studio.sh"
+
