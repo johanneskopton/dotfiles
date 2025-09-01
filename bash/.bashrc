@@ -205,6 +205,7 @@ stty -ixon
 eval "$(thefuck --alias)"
 
 ssh-add ~/.ssh/github1 2>/dev/null
+ssh-add ~/.ssh/github_hortibonn_new 2>/dev/null
 
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0232323" #black
