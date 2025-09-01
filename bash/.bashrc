@@ -233,3 +233,5 @@ export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
 
 export CAPACITOR_ANDROID_STUDIO_PATH="/home/johannes/Downloads/android-studio/android-studio/bin/studio.sh"
 
+
+export SOLARIZED=0
