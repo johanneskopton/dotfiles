@@ -235,3 +235,12 @@ export CAPACITOR_ANDROID_STUDIO_PATH="/home/johannes/Downloads/android-studio/an
 
 
 export SOLARIZED=0
+
+export PODMAN_COMPOSE_PROVIDER=podman-compose
+export PODMAN_COMPOSE_WARNING_LOGS=false
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(direnv hook bash)"
