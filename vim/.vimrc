@@ -38,7 +38,7 @@ Plugin 'dense-analysis/ale'
 if exists('$SOLARIZED') && $SOLARIZED ==? '1'
   Plugin 'lifepillar/vim-solarized8'
 else
-  Plugin 'NLKNguyen/papercolor-theme'
+  " Plugin 'NLKNguyen/papercolor-theme'
 endif
 Plugin 'catppuccin/nvim'
 Plugin 'airblade/vim-gitgutter'
@@ -84,12 +84,14 @@ if !exists('g:vscode')
   else
     if exists('$IS_ZED') && $IS_ZED == 'true'
       set background=dark
-      colorscheme catppuccin-frappe
+      colorscheme catppuccin-latte
       let g:airline_theme='deus'
     else
       set background=light
-      colorscheme PaperColor
-      let g:airline_theme='papercolor'
+      " colorscheme PaperColor
+      colorscheme catppuccin-latte
+      " let g:airline_theme='deus'
+      let g:airline_theme='catppuccin'
     endif
   endif
   " airline
