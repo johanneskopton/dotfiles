@@ -52,6 +52,7 @@ Plugin 'saadparwaiz1/cmp_luasnip' " LuaSnip integration with nvim-cmp
 Plugin 'L3MON4D3/LuaSnip'          " The snippet engine itself
 Plugin 'tpope/vim-commentary'
 Plugin 'ray-x/lsp_signature.nvim'
+Plugin 'keith/swift.vim'
 endif
 
 " All of your Plugins must be added before the following line
@@ -124,6 +125,7 @@ if !exists('g:vscode')
 
   autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
   autocmd FileType c map <F9> :w<CR>:!gcc % -o %< && ./%< <CR>
+  autocmd FileType swift map <buffer> <F9> :w<CR>:exec '!swift' shellescape(@%, 1)<CR>
 
 
   map <F8> :!node %<CR>
@@ -134,6 +136,14 @@ if !exists('g:vscode')
   let g:ale_linters = {
   \    'python': ['ruff'],
   \}
+
+" 1. Define a custom function to call the swift format subcommand
+  function! SwiftFormatCustom(buffer) abort
+      return {
+      \   'command': 'swift format %t',
+      \   'read_temporary_file': 1,
+      \}
+  endfunction
 
   " Custom ruff fixers (since built-in support varies by ALE version)
   function! RuffCheck(buffer) abort
@@ -150,9 +160,11 @@ if !exists('g:vscode')
     \}
   endfunction
 
+
   let g:ale_fixers = {
   "\    'python': [function('RuffCheck'), function('RuffFormat')],
   \    'python': [function('RuffFormat')],
+  \    'swift': ['swiftformat'],
   \}
 
   " ALE settings
@@ -211,6 +223,11 @@ if has('nvim')
 
     -- Configure the pyright language server
     lspconfig.pyright.setup({})
+
+    -- Configure the Swift language server
+    lspconfig.sourcekit.setup({
+      capabilities = capabilities, -- if you define capabilities for nvim-cmp
+    })
 
     -- ----------------------------------------------------
     -- Autocompletion Setup (nvim-cmp)
