@@ -6,7 +6,7 @@ alias fucking='sudo'
 # speed up git
 alias gc='git commit'
 alias ga='git add'
-alias glog='git log --graph --all --decorate'
+alias glog='git log --graph --all --decorate --perl-regexp --author="^((?!dependabot).)*\$"'
 alias gst='git status'
 alias gdc='git diff --cached'
 
