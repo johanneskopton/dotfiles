@@ -1,4 +1,2 @@
-sudo apt install git
-sudo apt install stow
-sudo apt install neovim
-sudo apt install thefuck
+#!/usr/bin/env bash
+sudo dnf install -y git stow neovim vim-enhanced fish thefuck direnv
