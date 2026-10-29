@@ -31,10 +31,12 @@ sudo dnf install git stow neovim vim-enhanced fish thefuck direnv
 * Clone the repo in your home directory `~/`.
 * Run `./install.sh`
     * Existing `.bashrc`, `.bash_aliases` and `~/.config/fish/config.fish` are moved to `*_old` first.
-    * Alternatively use [GNU Stow](https://www.gnu.org/software/stow) manually to create symlinks to the target destination.
-        * `stow vim` e.g. puts .vimrc directly in the right place (`../`)
+    * Alternatively use [GNU Stow](https://www.gnu.org/software/stow) manually. Every package mirrors the home directory, so no target directory is needed:
+        * `stow bash` puts `.bashrc` and `.bash_aliases` in `~/`
         * `stow fish` puts `config.fish` at `~/.config/fish/config.fish`
-        * use `stow example -t /example/path` to install something somewhere else
+        * `stow vim` puts `.vimrc` in `~/`
+        * `stow mutt` puts `.muttrc`, `.mailcap` and `.mutt/` in `~/`
+        * `stow nvim` puts `init.vim` at `~/.config/nvim/init.vim`
 * Optionally make fish your login shell:
 
     ```sh

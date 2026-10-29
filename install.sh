@@ -13,9 +13,7 @@ stow bash
 stow fish
 stow vim
 stow mutt
-
-mkdir -p "$HOME/.config/nvim"
-stow nvim -t "$HOME/.config/nvim"
+stow nvim
 
 source "$HOME/.bashrc"
 
