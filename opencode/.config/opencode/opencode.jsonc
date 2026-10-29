@@ -1,0 +1,54 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "lsp": false,
+  "permission": {
+    "websearch": "allow",
+    "webfetch": "allow"
+  },
+  "agent": {
+    "plan": {
+      "mode": "primary",
+      "model": "opencode-go/deepseek-v4.1-flash"
+    },
+    "build": {
+      "mode": "primary",
+      "model": "opencode-go/deepseek-v4.1-flash"
+    },
+    "general": {
+      "mode": "subagent",
+      "model": "opencode-go/deepseek-v4.1-flash"
+    },
+    "explore": {
+      "mode": "subagent",
+      "model": "opencode/mimo-v2.6-flash-free"
+    },
+    "scout": {
+      "mode": "subagent",
+      "model": "opencode/mimo-v2.6-flash-free"
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "servers": {
+      "semanticscholar": {
+        "type": "local",
+        "command": [
+          "/home/johannes/.config/opencode/mcp-servers/semanticscholar/.venv/bin/python",
+          "/home/johannes/.config/opencode/mcp-servers/semanticscholar/semantic_scholar_server.py"
+        ],
+        "environment": {
+          // Read the Semantic Scholar API key from the environment.
+          // In the hortibonn-zettel tree it is provided by direnv (see that repo's .envrc).
+          // If it is not set, the public API is used unauthenticated (lower rate limits).
+          "SEMANTIC_SCHOLAR_API_KEY": "{env:SEMANTIC_SCHOLAR_API_KEY}"
+        },
+        "timeout": {
+          "startup": 45000
+        }
+      }
+    }
+  }
+}
