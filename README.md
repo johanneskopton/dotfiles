@@ -9,6 +9,7 @@ The bash configuration is kept and installed alongside it.
 * `vim/`: Vim configuration (`.vimrc`)
 * `nvim/`: Neovim configuration (`~/.config/nvim/init.vim`)
 * `opencode/`: OpenCode configuration (`~/.config/opencode/opencode.jsonc`)
+* `zed/`: Zed configuration (`~/.config/zed/keymap.json`, `~/.config/zed/settings.json`)
 * `mutt/`: mutt configuration (`.muttrc`, `.mailcap`, `.mutt`)
 
 ## Installing
@@ -31,7 +32,7 @@ sudo dnf install git stow neovim vim-enhanced fish thefuck direnv
 
 * Clone the repo in your home directory `~/`.
 * Run `./install.sh`
-    * Existing `.bashrc`, `.bash_aliases`, `~/.config/fish/config.fish` and `~/.config/opencode/opencode.jsonc` are moved to `*_old` first.
+    * Existing `.bashrc`, `.bash_aliases`, `~/.config/fish/config.fish`, `~/.config/opencode/opencode.jsonc`, `~/.config/zed/keymap.json` and `~/.config/zed/settings.json` are moved to `*_old` first.
     * Alternatively use [GNU Stow](https://www.gnu.org/software/stow) manually. Every package mirrors the home directory, so no target directory is needed:
         * `stow bash` puts `.bashrc` and `.bash_aliases` in `~/`
         * `stow fish` puts `config.fish` at `~/.config/fish/config.fish`
@@ -39,6 +40,7 @@ sudo dnf install git stow neovim vim-enhanced fish thefuck direnv
         * `stow mutt` puts `.muttrc`, `.mailcap` and `.mutt/` in `~/`
         * `stow nvim` puts `init.vim` at `~/.config/nvim/init.vim`
         * `stow opencode` puts `opencode.jsonc` at `~/.config/opencode/opencode.jsonc`
+        * `stow zed` puts `keymap.json` and `settings.json` at `~/.config/zed/`
 * Optionally make fish your login shell:
 
     ```sh

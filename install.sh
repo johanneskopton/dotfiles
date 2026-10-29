@@ -3,7 +3,7 @@
 cd "$(dirname "$0")" || exit 1
 
 # Move existing configs out of the way so stow can create the symlinks.
-for file in "$HOME/.bashrc" "$HOME/.bash_aliases" "$HOME/.config/fish/config.fish" "$HOME/.config/opencode/opencode.jsonc"; do
+for file in "$HOME/.bashrc" "$HOME/.bash_aliases" "$HOME/.config/fish/config.fish" "$HOME/.config/opencode/opencode.jsonc" "$HOME/.config/zed/keymap.json" "$HOME/.config/zed/settings.json"; do
     if [ -e "$file" ]; then
         mv "$file" "${file}_old"
     fi
@@ -15,6 +15,7 @@ stow vim
 stow mutt
 stow nvim
 stow opencode
+stow zed
 
 source "$HOME/.bashrc"
 

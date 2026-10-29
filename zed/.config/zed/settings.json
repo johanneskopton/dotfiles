@@ -1,0 +1,198 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "diff_view_style": "unified",
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "show_edit_predictions": true,
+  "edit_predictions": {
+    "copilot": {
+      "enable_next_edit_suggestions": true
+    },
+    "provider": "copilot"
+  },
+  "agent_servers": {
+    "opencode": {
+      "default_config_options": {
+        "effort": "medium",
+        "mode": "plan",
+        "model": "openrouter/deepseek/deepseek-v4-pro"
+      },
+      "type": "registry"
+    },
+    "github-copilot-cli": {
+      "type": "registry"
+    },
+    "gemini": {
+      "type": "registry"
+    },
+    "github-copilot": {
+      "type": "registry"
+    }
+  },
+  "context_servers": {
+    "mcp-server-context7": {
+      "enabled": true,
+      "settings": {
+        "default_minimum_tokens": "10000",
+      },
+    },
+  },
+  "agent": {
+    "dock": "right",
+    "tool_permissions": {
+      "default": "allow"
+    },
+    "default_profile": "write",
+    "profiles": {
+      "my-write": {
+        "default_model": {
+          "provider": "copilot_chat",
+          "model": "claude-haiku-4.5",
+        },
+        "name": "MyWrite",
+        "tools": {
+          "search_web": true,
+          "update_plan": true,
+          "spawn_agent": true,
+          "save_file": true,
+          "restore_file_from_disk": true,
+          "copy_path": true,
+          "create_directory": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "project_notifications": false,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "terminal": true,
+          "thinking": true,
+          "open": true,
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {
+          "svelte-mcp": {
+            "tools": {
+              "playground-link": false,
+            },
+          },
+        },
+      },
+      "write": {
+        "name": "Write",
+        "tools": {
+          "search_web": true,
+          "copy_path": true,
+          "create_directory": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "project_notifications": false,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "terminal": true,
+          "thinking": true,
+          "open": true,
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {},
+      },
+    },
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "claude-haiku-4.5",
+    },
+    "default_model": {
+      "effort": "max",
+      "enable_thinking": true,
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.6",
+    },
+  },
+  "icon_theme": "Catppuccin Latte",
+  "vim_mode": true,
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "One Dark",
+  },
+  // UI Font. Use ".SystemUIFont" to use the default system font (SF Pro on macOS)
+  "ui_font_family": "Noto Sans",
+  "ui_font_weight": 500, // Font weight in standard CSS units from 100 to 900.
+  "ui_font_size": 15,
+
+  // Buffer Font - Used by editor buffers
+  "buffer_font_family": "Fira Code", // Font name for editor buffers
+  "buffer_font_size": 15, // Font size for editor buffers
+  "buffer_font_weight": 400, // Font weight in CSS units [100-900]
+  // Line height "comfortable" (1.618), "standard" (1.3) or custom: `{ "custom": 2 }`
+  "buffer_line_height": "standard",
+
+  // Terminal Font Settings
+  "terminal": {
+    "font_family": "Fira Code",
+    "font_size": 15,
+    // Terminal line height: comfortable (1.618), standard(1.3) or `{ "custom": 2 }`
+    "line_height": "standard",
+    "env": {
+      "IS_ZED": "true",
+    },
+  },
+
+  // Agent Panel Font Settings
+  "agent_ui_font_size": 15,
+  "languages": {
+    "Python": {
+      "language_servers": ["ruff"],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "language_server": {
+            "name": "ruff",
+          },
+        },
+      ],
+      // Or, if there are other language servers you want to use with Python
+      // "language_servers": ["pyright", "ruff"]
+    },
+  },
+  "soft_wrap": "editor_width",
+  "lsp": {
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "build": {
+            "onSave": false,
+          },
+        },
+      },
+    },
+  },
+}
