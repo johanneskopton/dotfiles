@@ -3,7 +3,16 @@
 cd "$(dirname "$0")" || exit 1
 
 # Move existing configs out of the way so stow can create the symlinks.
-for file in "$HOME/.bashrc" "$HOME/.bash_aliases" "$HOME/.config/fish/config.fish" "$HOME/.config/opencode/opencode.jsonc" "$HOME/.config/zed/keymap.json" "$HOME/.config/zed/settings.json"; do
+for file in \
+    "$HOME/.bashrc" \
+    "$HOME/.bash_aliases" \
+    "$HOME/.config/fish/config.fish" \
+    "$HOME/.config/fish/fish_plugins" \
+    "$HOME/.config/fish/functions/fish_prompt.fish" \
+    "$HOME/.config/fish/functions/fish_mode_prompt.fish" \
+    "$HOME/.config/opencode/opencode.jsonc" \
+    "$HOME/.config/zed/keymap.json" \
+    "$HOME/.config/zed/settings.json"; do
     if [ -e "$file" ]; then
         mv "$file" "${file}_old"
     fi

@@ -4,7 +4,7 @@ The bash configuration is kept and installed alongside it.
 
 ## Contents
 
-* `fish/`: fish configuration (`~/.config/fish/config.fish`)
+* `fish/`: fish configuration (`config.fish`, the prompt and vi-mode override, and the fisher `fish_plugins` list)
 * `bash/`: bash configuration (`.bashrc`, `.bash_aliases`)
 * `vim/`: Vim configuration (`.vimrc`)
 * `nvim/`: Neovim configuration (`~/.config/nvim/init.vim`)
@@ -32,10 +32,10 @@ sudo dnf install git stow neovim vim-enhanced fish thefuck direnv
 
 * Clone the repo in your home directory `~/`.
 * Run `./install.sh`
-    * Existing `.bashrc`, `.bash_aliases`, `~/.config/fish/config.fish`, `~/.config/opencode/opencode.jsonc`, `~/.config/zed/keymap.json` and `~/.config/zed/settings.json` are moved to `*_old` first.
+    * Existing configuration files that would conflict with the stow packages are moved to `*_old` first.
     * Alternatively use [GNU Stow](https://www.gnu.org/software/stow) manually. Every package mirrors the home directory, so no target directory is needed:
         * `stow bash` puts `.bashrc` and `.bash_aliases` in `~/`
-        * `stow fish` puts `config.fish` at `~/.config/fish/config.fish`
+        * `stow fish` puts `config.fish`, `fish_plugins`, `fish_prompt.fish` and `fish_mode_prompt.fish` under `~/.config/fish/`
         * `stow vim` puts `.vimrc` in `~/`
         * `stow mutt` puts `.muttrc`, `.mailcap` and `.mutt/` in `~/`
         * `stow nvim` puts `init.vim` at `~/.config/nvim/init.vim`
@@ -46,6 +46,16 @@ sudo dnf install git stow neovim vim-enhanced fish thefuck direnv
     ```sh
     chsh -s /usr/bin/fish
     ```
+
+## Fish
+
+The custom prompt shows the current directory, the git branch and dirty state,
+and the last command's exit status. `user@host` is only shown for SSH and root
+shells, so no hostname is hardcoded; override this with
+`set -U fish_prompt_show_user_host 1` (always show) or `0` (never show).
+
+The [fisher](https://github.com/jorgebucaran/fisher) plugins are listed in
+`fish_plugins`. After installing fisher, run `fisher update` to install them.
 
 ## Bash
 
