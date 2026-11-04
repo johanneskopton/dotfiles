@@ -34,10 +34,6 @@ if status is-interactive
         direnv hook fish | source
     end
 
-    if command -q thefuck
-        thefuck --alias | source
-    end
-
     ssh-add $HOME/.ssh/github1 2>/dev/null
     ssh-add $HOME/.ssh/github_hortibonn_new 2>/dev/null
 

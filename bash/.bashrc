@@ -202,8 +202,6 @@ export PATH=$PATH:$HOME/.local/bin
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
 
-eval "$(thefuck --alias)"
-
 ssh-add ~/.ssh/github1 2>/dev/null
 ssh-add ~/.ssh/github_hortibonn_new 2>/dev/null
 

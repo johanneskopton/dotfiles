@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo dnf install -y git stow neovim vim-enhanced fish thefuck direnv
+sudo dnf install -y git stow neovim vim-enhanced fish direnv
